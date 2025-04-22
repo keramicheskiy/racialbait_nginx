@@ -11,9 +11,15 @@ services:
     volumes:
       - ./nginx:/etc/nginx/conf.d
       # - ./web/static:/app/static
+      - static-data:/usr/share/nginx/html/static
       - /etc/letsencrypt:/etc/letsencrypt    # Монтирование Let's Encrypt
     restart: always
     networks:
       - nginx_network
 
+volumes:
+  static-data:
 
+networks:
+  shared-net:
+    external: true
