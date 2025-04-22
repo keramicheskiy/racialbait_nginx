@@ -9,8 +9,11 @@ services:
 #      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
 #      - ./web/static:/app/static
     volumes:
-      - ./nginx/keramicheskiy.conf:/etc/nginx/conf.d/keramicheskiy.conf
-      - ./nginx/krmch.conf:/etc/nginx/conf.d/krmch.conf
+      - ./nginx:/etc/nginx/conf.d
       # - ./web/static:/app/static
       - /etc/letsencrypt:/etc/letsencrypt    # Монтирование Let's Encrypt
     restart: always
+    networks:
+      - nginx_network
+
+
